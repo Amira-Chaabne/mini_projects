@@ -1,7 +1,26 @@
-import { Text } from '@mantine/core';
+import { useHotkeys, useLocalStorage } from "@mantine/hooks";
+import Layout from "./Layout/Layout";
+import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 
 export default function App() {
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'mantine-color-scheme',
+    defaultValue: 'light',
+    getInitialValueInEffect: true,
+  });
+
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+
+  useHotkeys([['mod+J', () => toggleColorScheme()]]);
+
   return (
-      <Text className='text-red-600'>Initialize the project</Text>
-  );
+    <>
+      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+      <MantineProvider theme={{colorScheme}}>
+        <Layout />
+      </MantineProvider>
+      </ColorSchemeProvider>
+    </>
+  )
 }
