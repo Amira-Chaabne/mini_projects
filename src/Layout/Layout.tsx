@@ -13,6 +13,8 @@ import { UserButton } from "../components/UserButton/UserButton";
 import { LinksGroup } from "./NavbarLinkGroup";
 import { IconBrandRedux } from "@tabler/icons-react";
 import TodoApp from "../section/TodoApp/TodoApp";
+import { Provider } from "react-redux";
+import { store } from "../app/store";
 
 function Layout() {
   const [opened, setOpened] = useState(false);
@@ -56,7 +58,15 @@ function Layout() {
         }
       >
         <Routes>
-          <Route path="/" element={<TodoApp />} />
+          <Route
+            path="/"
+            element={
+              // Using redux just for this mini project
+              <Provider store={store}>
+                <TodoApp />
+              </Provider>
+            }
+          />
         </Routes>
       </AppShell>
     </Router>
