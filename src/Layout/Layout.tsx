@@ -12,9 +12,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserButton } from "../components/UserButton/UserButton";
 import { LinksGroup } from "./NavbarLinkGroup";
 import { IconBrandRedux } from "@tabler/icons-react";
-import TodoApp from "../section/TodoApp/TodoApp";
 import { Provider } from "react-redux";
 import { store } from "../app/store";
+import TodoApp from "../section/TodoApp";
 
 function Layout() {
   const [opened, setOpened] = useState(false);
