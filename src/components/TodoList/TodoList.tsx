@@ -1,6 +1,6 @@
 import { Card, UnstyledButton } from "@mantine/core";
 import { useDispatch } from "react-redux";
-import { TodoState } from "../../features/todoSlice";
+import { TodoState, deleteTodo } from "../../features/todoSlice";
 import EditModal from "../TodoForm/EditModal";
 
 interface TodoProps {
@@ -9,6 +9,11 @@ interface TodoProps {
 }
 
 export default function TodoList({ todo, index }: TodoProps) {
+  const dispatch = useDispatch();
+  function handleRemoveTodo(id: number) {
+    dispatch(deleteTodo(id));
+  }
+
   return (
     <Card className="border flex justify-between items-center gap-4 p-2">
       <div>
@@ -20,7 +25,9 @@ export default function TodoList({ todo, index }: TodoProps) {
         </p>
       </div>
       <div className="flex flex-col">
-        <UnstyledButton>Remove</UnstyledButton>
+        <UnstyledButton onClick={() => handleRemoveTodo(todo.id)}>
+          Remove
+        </UnstyledButton>
         <EditModal id={todo.id} />
       </div>
     </Card>

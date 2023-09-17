@@ -24,7 +24,13 @@ export const todoSlice = createSlice({
                 found.desc = desc
             }
         },
-
+        deleteTodo: (state, action: PayloadAction<number>) => {
+            const id = action.payload
+            const found = state.find(todo => todo.id === id)
+            if (found) {
+                return state.filter((todo) => todo.id !== id)
+            }
+        }
     }
 })
 

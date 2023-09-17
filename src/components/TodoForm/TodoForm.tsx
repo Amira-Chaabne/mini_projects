@@ -31,7 +31,7 @@ export default function TodoForm() {
   function handleTodo(values: FormValues) {
     dispatch(
       addTodo({
-        id: todos[todos.length - 1].id + 1,
+        id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
         title: values.title,
         desc: values.desc,
       })
