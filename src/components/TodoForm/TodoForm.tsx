@@ -1,10 +1,10 @@
-import { TextInput, Button, Group } from "@mantine/core";
+import { TextInput, Button, Group, Textarea } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { addTodo } from "../../features/todoSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Rootstate } from "../../app/store";
 
-interface FormValues {
+export interface FormValues {
   title: string;
   desc: string;
 }
@@ -29,7 +29,6 @@ export default function TodoForm() {
   const dispatch = useDispatch();
 
   function handleTodo(values: FormValues) {
-    console.log(values);
     dispatch(
       addTodo({
         id: todos[todos.length - 1].id + 1,
@@ -50,7 +49,7 @@ export default function TodoForm() {
         placeholder="Add your todo here"
         {...form.getInputProps("title")}
       />
-      <TextInput
+      <Textarea
         placeholder="Add description for the task"
         {...form.getInputProps("desc")}
       />
