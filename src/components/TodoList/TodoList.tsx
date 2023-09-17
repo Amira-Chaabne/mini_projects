@@ -2,6 +2,7 @@ import { Card, UnstyledButton } from "@mantine/core";
 import { useDispatch } from "react-redux";
 import { TodoState, deleteTodo } from "../../features/todoSlice";
 import EditModal from "../TodoForm/EditModal";
+import { IconSquareX } from "@tabler/icons-react";
 
 interface TodoProps {
   todo: TodoState;
@@ -24,9 +25,12 @@ export default function TodoList({ todo, index }: TodoProps) {
           {todo.desc}
         </p>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col md:flex-row gap-3">
         <UnstyledButton onClick={() => handleRemoveTodo(todo.id)}>
-          Remove
+          <IconSquareX
+            className="hover:text-red-400 transition-all"
+            strokeWidth={1.25}
+          />
         </UnstyledButton>
         <EditModal id={todo.id} />
       </div>

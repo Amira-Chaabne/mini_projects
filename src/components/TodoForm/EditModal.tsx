@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Rootstate } from "../../app/store";
 import { useEffect } from "react";
 import { updateTodo } from "../../features/todoSlice";
+import { IconEdit } from "@tabler/icons-react";
 
 export default function EditModal({ id }: { id: number }) {
   const [opened, { open, close }] = useDisclosure(false);
@@ -77,7 +78,12 @@ export default function EditModal({ id }: { id: number }) {
           </Group>
         </form>
       </Modal>
-      <UnstyledButton onClick={open}>Edit</UnstyledButton>
+      <UnstyledButton onClick={open}>
+        <IconEdit
+          strokeWidth={1.25}
+          className="hover:text-emerald-400 transition-all"
+        />
+      </UnstyledButton>
     </>
   );
 }

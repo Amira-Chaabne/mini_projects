@@ -12,9 +12,14 @@ export default function TodoApp() {
       <TodoForm />
       <Divider my="lg" />
       <div className="flex flex-col gap-4">
-        {todos.map((todo, index) => (
-          <TodoList todo={todo} index={index} />
-        ))}
+        {todos.length === 0 ? (
+          <p className="text-gray-500 text-sm text-center">
+            😎 The to-do list is chilling for now! Let's light it up with some
+            tasks! 🔥
+          </p>
+        ) : (
+          todos.map((todo, index) => <TodoList todo={todo} index={index} />)
+        )}
       </div>
     </div>
   );

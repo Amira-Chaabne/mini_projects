@@ -1,12 +1,12 @@
 export const reduxTodoLis = [
   {
     id: 1,
-    title: "this is your first todo for this day",
-    desc: "this is the todo one desc",
+    title: "Daily Compliment",
+    desc: "Gift yourself a kind word; you deserve it.",
   },
   {
     id: 2,
-    title: "this is your second todo for this day",
-    desc: "this is the todo two desc",
+    title: "Burst of Bliss",
+    desc: "Take a deep breath, embrace the present, and let the joy in.",
   },
 ];

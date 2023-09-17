@@ -54,7 +54,7 @@ export default function TodoForm() {
         {...form.getInputProps("desc")}
       />
       <Group position="right">
-        <Button type="submit" className="bg-blue-400 transition-all">
+        <Button type="submit" variant="outline">
           Go
         </Button>
       </Group>

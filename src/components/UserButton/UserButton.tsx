@@ -47,9 +47,12 @@ export function UserButton({
         rel="noreferrer"
         className="flex items-center"
       >
-        <Avatar src={image} radius="xl" />
+        {/* <Avatar src={image} radius="xl" /> */}
+        <Avatar size={40} color="blue">
+          AC
+        </Avatar>
 
-        <div style={{ flex: 1 }}>
+        <div className="flex-1 ml-2">
           <Text size="sm" weight={500}>
             {name}
           </Text>
