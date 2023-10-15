@@ -59,7 +59,7 @@ function Layout() {
       >
         <Routes>
           <Route
-            path="/"
+            path="/mini_projects"
             element={
               // Using redux just for this mini project
               <Provider store={store}>
